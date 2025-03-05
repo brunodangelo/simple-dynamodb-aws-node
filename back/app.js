@@ -3,10 +3,15 @@ import cors from "cors";
 import { DynamoDBClient} from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand, ScanCommand} from "@aws-sdk/lib-dynamodb";
 import randomString from "randomstring";
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app=express();
 const port= 3000;
-const client = new DynamoDBClient({ region: "us-east-1" });
+const client = new DynamoDBClient({ region: "us-east-1", credentials:{
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY
+}});
 const table_name = "tabla-bruno"
 
 app.use(cors());
