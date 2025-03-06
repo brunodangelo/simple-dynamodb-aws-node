@@ -20,7 +20,7 @@ app.use(urlencoded({ extended: false }))
      
 app.use(json())
 
-app.use('/api/get-data', async (req, res) => {
+app.use('/', async (req, res) => {
     return res.status(200).json("ok");  
 });
 
