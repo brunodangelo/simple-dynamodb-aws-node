@@ -20,6 +20,10 @@ app.use(urlencoded({ extended: false }))
      
 app.use(json())
 
+app.use('/api/get-data', async (req, res) => {
+    return res.status(200).json("ok");  
+});
+
 app.post('/api/add-data', async (req, res) => {
     const { full_name, age, team, worldcups } = req.body;
     const docClient = DynamoDBDocumentClient.from(client);
