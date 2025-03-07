@@ -20,8 +20,8 @@ app.use(urlencoded({ extended: false }))
      
 app.use(json())
 
-app.use('/', async (req, res) => {
-    return res.status(200).json("ok");  
+app.use('/health', async (req, res) => {
+    res.status(200).send('OK');  
 });
 
 app.post('/api/add-data', async (req, res) => {
